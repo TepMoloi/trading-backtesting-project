@@ -108,8 +108,8 @@ def main():
             # Example: "C:/YourUsername/YourProject/data_save/" or "./data/" - 
             
             filename = f"MT5_{symbol}_{timeframe}_data.csv"
-            #df.to_csv("c:\\Users\\Lehasa\\Desktop\\Trading_Backtesting_Project\\data_save\\" + filename)
-            #data_dir = "c:\\Users\\Lehasa\\Desktop\\Trading_Backtesting_Project\\data_save\\"
+            #df.to_csv("c:\\Users\\Tshepo\\Desktop\\Trading_Backtesting_Project\\data_save\\" + filename)
+            #data_dir = "c:\\Users\\Tshepo\\Desktop\\Trading_Backtesting_Project\\data_save\\"
             #os.makedirs(data_dir, exist_ok=True)  # Ensure directory exists
             # filepath = os.path.join(data_dir, filename)
             # df.to_csv(filepath)  # Save directly to the correct location
@@ -143,4 +143,5 @@ def main():
 if __name__ == "__main__":
 
     main()
+
 

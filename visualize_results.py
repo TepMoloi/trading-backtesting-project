@@ -36,14 +36,6 @@ def create_performance_dashboard(strat, results):
     plt.subplot(3, 2, 4)
     plot_monthly_returns(strat)
 
-    #plot 5: Position Sizing
-    #plt.subplot(3, 2, 5)
-    #plot_position_sizing(strat)
-
-    #plot 6: Sharpe Ratio Rolling
-    #plt.subplot(3, 2, 6)
-    #plot_rolling_sharpe(strat)
-
     plt.tight_layout()
     plt.savefig(f"performance_dashboard_{symbol}_{timeframe}.png", dpi=300, bbox_inches="tight")
     plt.show()
@@ -54,7 +46,8 @@ def find_data_file():
     """Automatically find the most recent MT5 data file"""
     try:
         # Look in the data_save directory for the most recent file
-        data_dir = "c:\\Users\\Lehasa\\Desktop\\Trading_Backtesting_Project\\data_save\\in_use"
+        --- USER SETUP: Change this path to your desired data directory ---
+        data_dir = "c:\\Users\\Tshepo\\Desktop\\Trading_Backtesting_Project\\data_save\\in_use"
         all_files = [f for f in os.listdir(data_dir) if f.startswith('MT5_') and f.endswith('_data.csv')]
         
         if not all_files:
@@ -74,11 +67,6 @@ def find_data_file():
         full_path = os.path.join(data_dir, latest_file)
         print(f"Using most recent file: {full_path}")
         return full_path, symbol, timeframe  # Return FULL PATH
-
-        #shutil.move("c:\\Users\\Lehasa\\Desktop\\Trading_Backtesting_Project\\data_save\\in_use\\" + latest_file,"c:\\Users\\Lehasa\\Desktop\\Trading_Backtesting_Project\\data_save\\archive\\" + latest_file)
-        
-        # print(f"Using most recent data file: {latest_file}")
-        # return latest_file, symbol, timeframe
         
         
     except Exception as e:
@@ -298,71 +286,7 @@ def plot_monthly_returns(strat):
                  transform=plt.gca().transAxes, ha="center", va="center")
         plt.title("Monthly Returns - Error", fontweight="bold")
 
-###################################################################################
-
-# def plot_position_sizing(strat):
-#     """Plot position sizing and trade amounts over"""
-#     try:
-#         if not hasattr(strat, 'analyzers') or not hasattr(strat.analyzers, 'txn'):
-#             plt.text(0.5, 0.5, "Transaction data not available\nEnable transaction recording", 
-#                     transform=plt.gca().transAxes, ha='center', va='center')
-#             plt.title("Position Sizing - Data Required", fontweight="bold")
-#             plt.axis("off")
-#             return
-        
-#         # Get transaction analyzer results
-#         txn_analysis = strat.analyzers.txn.get_analysis()
-        
-#         if not txn_analysis:
-#             plt.text(0.5, 0.5, "No transaction data recorded", 
-#                     transform=plt.gca().transAxes, ha='center', va='center')
-#             plt.title("Position Sizing - No Data", fontweight="bold")
-#             plt.axis("off")
-#             return
-        
-#         position_sizes = []
-
-#         #parse transaction data
-#         for date, transactions in txn_analysis.items():
-#             for txn in transactions:
-#                 #tn format: (size, price, value, commission)
-#                 if len(txn) >= 3:
-#                     size = abs(txn[0])
-#                     position_sizes.append(size)
-                    
-
-#         if not position_sizes:
-#             plt.text(0.5, 0.5, "No position size data available",
-#                      transform=plt.gca().transAxes, ha="center", va="center")
-#             plt.title("position_sizes - No data", fontweight="bold")
-#             plt.axis("off")
-#             return
-        
-#         plt.hist(position_sizes, bins=15, alpha=0.7, color="skyblue", edgecolor="black")
-#         plt.title("Position Size Distribution", fontweight="bold")
-#         plt.xlabel("Position Size (Units)")
-#         plt.ylabel("Frequency")
-#         plt.grid(True, alpha=0.3)
-
-#         stats_text = [
-#             f"Total Trades: {len(position_sizes)}",
-#             f"Avg Size: {np.mean(position_sizes):.2f} units",
-#             f"Min: {np.min(position_sizes):.2f} units",
-#             f"Max: {np.max(position_sizes):.2f} units"
-#         ]
-
-#         for i, text in enumerate(stats_text):
-#             plt.text(0.95, 0.85 - i*0.08, text, fontsize=9, transform=plt.gca().transAxes,
-#                      ha="right", va="top", bbox=dict(boxstyle="round", facecolor="white", alpha=0.8))       
-        
-#     except Exception as e:
-#         print(f"Error plotting position sizing: {e}")
-#         plt.text(0.5, 0.5, "Error loading position data", 
-#                 transform=plt.gca().transAxes, ha='center', va='center')
-#         plt.title("Position Sizing - Error", fontweight="bold")
-#         plt.axis('off')
-
-###################################################################################
+##################################################################################
 
 def get_backtest_results():
     """Load and run backtest for results"""
@@ -407,11 +331,6 @@ def get_backtest_results():
         #store symbol info in strategy for later use
         strat.symbol = symbol
         strat.timeframe = timeframe
-        
-        # if data_file and os.path.exists(data_file):
-        #     archive_path = "c:\\Users\\Lehasa\\Desktop\\Trading_Backtesting_Project\\data_save\\archive\\" + os.path.basename(data_file)
-        #     shutil.move(data_file, archive_path)
-        #     print(f"Moved {data_file} to archive")
 
         return strat, results
     
@@ -433,3 +352,4 @@ if __name__ == "__main__":
         print("Then run this visualization tool.")
 
         
+

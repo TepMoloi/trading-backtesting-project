@@ -1,0 +1,8 @@
+requirements.txt
+
+backtrader
+pandas
+numpy
+matplotlib
+MetaTrader5
+openpyxl

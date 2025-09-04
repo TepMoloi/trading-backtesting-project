@@ -104,19 +104,10 @@ def main():
 
         if df is not None and not df.empty:
             #save to csv
-            --- USER SETUP: Change this path to your desired data directory ---
-            # Example: "C:/YourUsername/YourProject/data_save/" or "./data/" - 
-            
             filename = f"MT5_{symbol}_{timeframe}_data.csv"
-            #df.to_csv("c:\\Users\\Tshepo\\Desktop\\Trading_Backtesting_Project\\data_save\\" + filename)
-            #data_dir = "c:\\Users\\Tshepo\\Desktop\\Trading_Backtesting_Project\\data_save\\"
-            #os.makedirs(data_dir, exist_ok=True)  # Ensure directory exists
-            # filepath = os.path.join(data_dir, filename)
-            # df.to_csv(filepath)  # Save directly to the correct location
-            
-        
             df.to_csv(filename)
             --- USER SETUP: Change this path to your desired data directory ---
+            # Example: "C:/YourUsername/YourProject/data_save/" or "./data/" - 
             #---FILE WILL INITIALLY SAVE IN YOUR -- C:\\Users\\(Your active user)
             shutil.move("C:\\Users\\Tshepo\\" + filename,"c:\\Users\\Tshepo\\Desktop\\Trading_Backtesting_Project\\data_save\\" + filename)
 
@@ -143,5 +134,6 @@ def main():
 if __name__ == "__main__":
 
     main()
+
 
 

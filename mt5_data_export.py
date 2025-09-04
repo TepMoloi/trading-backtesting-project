@@ -118,7 +118,7 @@ def main():
             df.to_csv(filename)
             --- USER SETUP: Change this path to your desired data directory ---
             #---FILE WILL INITIALLY SAVE IN YOUR -- C:\\Users\\(Your active user)
-            shutil.move("C:\\Users\\Lehasa\\" + filename,"c:\\Users\\Lehasa\\Desktop\\Trading_Backtesting_Project\\data_save\\" + filename)
+            shutil.move("C:\\Users\\Tshepo\\" + filename,"c:\\Users\\Tshepo\\Desktop\\Trading_Backtesting_Project\\data_save\\" + filename)
 
             with open("latest_export_info.txt", "w") as f:
                 f.write(f"{symbol},{timeframe}")
@@ -143,3 +143,4 @@ def main():
 if __name__ == "__main__":
 
     main()
+

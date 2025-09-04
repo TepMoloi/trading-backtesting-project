@@ -104,6 +104,9 @@ def main():
 
         if df is not None and not df.empty:
             #save to csv
+            --- USER SETUP: Change this path to your desired data directory ---
+            # Example: "C:/YourUsername/YourProject/data_save/" or "./data/" - 
+            
             filename = f"MT5_{symbol}_{timeframe}_data.csv"
             #df.to_csv("c:\\Users\\Lehasa\\Desktop\\Trading_Backtesting_Project\\data_save\\" + filename)
             #data_dir = "c:\\Users\\Lehasa\\Desktop\\Trading_Backtesting_Project\\data_save\\"
@@ -111,8 +114,10 @@ def main():
             # filepath = os.path.join(data_dir, filename)
             # df.to_csv(filepath)  # Save directly to the correct location
             
-            
+        
             df.to_csv(filename)
+            --- USER SETUP: Change this path to your desired data directory ---
+            #---FILE WILL INITIALLY SAVE IN YOUR -- C:\\Users\\(Your active user)
             shutil.move("C:\\Users\\Lehasa\\" + filename,"c:\\Users\\Lehasa\\Desktop\\Trading_Backtesting_Project\\data_save\\" + filename)
 
             with open("latest_export_info.txt", "w") as f:
@@ -136,4 +141,5 @@ def main():
         print("\nMT5 connection closed")
 
 if __name__ == "__main__":
+
     main()

@@ -20,8 +20,18 @@ trading-backtesting-project/
 │ └── archive/ # Completed backtest files
 └── README.md
 
+## Setup Instructions
+
+1. **Clone this repository**
+2. **Modify the file paths** in these files to match your local system:
+   - `mt5_data_export.py` - Line XX: Change data save directory
+   - `sma_backtest.py` - Line XX: Change data directory paths  
+   - `visualize_results.py` - Line XX: Change data directory paths
+3. **Create the necessary directories** on your system
+4. **Install required packages**
+
 ## Run the scripts in this order
 
-1 python mt5_data_export.py
-2 python sma_backtest.py  
-3 python visualize_results.py
+python mt5_data_export.py
+python sma_backtest.py  
+python visualize_results.py

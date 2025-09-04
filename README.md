@@ -32,6 +32,6 @@ trading-backtesting-project/
 
 ## Run the scripts in this order
 
-python mt5_data_export.py
-python sma_backtest.py  
-python visualize_results.py
+1. python mt5_data_export.py
+2. python sma_backtest.py  
+3. python visualize_results.py

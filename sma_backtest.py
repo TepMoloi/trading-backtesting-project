@@ -139,28 +139,25 @@ def find_data_file():
                 symbol, timeframe = f.read().strip().split(",")
                 expected_file = f"MT5_{symbol}_{timeframe}_data.csv"
 
-                expected_file_path = "c:\\Users\\Lehasa\\Desktop\\Trading_Backtesting_Project\\data_save\\" + expected_file
+                
+                --- USER SETUP: Change BOTH paths to your desired data directory ---
+                expected_file_path = "c:\\Users\\Tshepo\\Desktop\\Trading_Backtesting_Project\\data_save\\" + expected_file
                 if os.path.exists(expected_file_path):
                     print(f"Using latest exported file: {expected_file_path}")
-                    new_path = "c:\\Users\\Lehasa\\Desktop\\Trading_Backtesting_Project\\data_save\\in_use\\" + expected_file
+                    new_path = "c:\\Users\\Tshepo\\Desktop\\Trading_Backtesting_Project\\data_save\\in_use\\" + expected_file
                     shutil.move(expected_file_path, new_path)
                     return new_path, symbol, timeframe  # Return path to the MOVED file
                 
                 
-                    # shutil.move(expected_file_path, "c:\\Users\\Lehasa\\Desktop\\Trading_Backtesting_Project\\data_save\\in_use\\" + expected_file)
-                    # return expected_file_path, symbol, timeframe  # Return FULL PATH
                 
-                # if os.path.exists(expected_file):
-                #     print(f"Using latest exported file: {expected_file}")
-                #     #shutil.move("c:\\Users\\Lehasa\\Desktop\\Trading_Backtesting_Project\\data_save\\" + expected_file,"c:\\Users\\Lehasa\\Desktop\\Trading_Backtesting_Project\\data_save\\in_use\\" + expected_file)
-                #     return expected_file, symbol, timeframe
 
         
         # Fallback: find most recent file in data directory
-        data_dir = "c:\\Users\\Lehasa\\Desktop\\Trading_Backtesting_Project\\data_save\\"
+        --- USER SETUP: Change this path to your desired data directory ---
+        data_dir = "c:\\Users\\Tshepo\\Desktop\\Trading_Backtesting_Project\\data_save\\"
         all_files = [f for f in os.listdir(data_dir) if f.startswith('MT5_') and f.endswith('_data.csv')]
         # First check if we have metadata from latest export
-        #shutil.move("c:\\Users\\Lehasa\\Desktop\\Trading_Backtesting_Project\\data_save\\" + expected_file,"c:\\Users\\Lehasa\\Desktop\\Trading_Backtesting_Project\\data_save\\in_use\\" + expected_file)
+        
         
         if not all_files:
             print("Error: No data files found!")
@@ -170,14 +167,13 @@ def find_data_file():
         filename_parts = latest_file.replace("MT5_", "").replace("_data.csv", "").split("_")
         symbol = filename_parts[0] if len(filename_parts) > 0 else "Unknown"
         timeframe = filename_parts[1] if len(filename_parts) > 1 else "Unknown"
-
-        data_dir = "c:\\Users\\Lehasa\\Desktop\\Trading_Backtesting_Project\\data_save\\"
+        
+        --- USER SETUP: Change this path to your desired data directory ---
+        data_dir = "c:\\Users\\Tshepo\\Desktop\\Trading_Backtesting_Project\\data_save\\"
         full_path = os.path.join(data_dir, latest_file)
         print(f"Using most recent file: {full_path}")
         return full_path, symbol, timeframe  # Return FULL PATH
 
-        # print(f"Using most recent file: {latest_file}")
-        # return latest_file, symbol, timeframe
     
     except Exception as e:
         print(f"Error finding data file: {e}")
@@ -289,4 +285,5 @@ if __name__ == "__main__":
     #plotting results
     import matplotlib.pyplot as plt
     plt.rcParams["figure.figsize"] = [12, 8]
+
     cerebro.plot(style="candlestick", volume=True, barup="green", bardown="red")

@@ -2,10 +2,6 @@
 
 A comprehensive algorithmic trading system with MetaTrader 5 data export, Backtrader backtesting, and performance visualization.
 
-![Chart Output](/trading_project_images./32k.png) 
-
-*Diagram of the system architecture*
-
 ## Features
 
 - **MT5 Data Export**: Download historical data from MetaTrader 5

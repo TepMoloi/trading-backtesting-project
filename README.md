@@ -2,7 +2,7 @@
 
 A comprehensive algorithmic trading system with MetaTrader 5 data export, Backtrader backtesting, and performance visualization.
 
-![Chart Output](./images/32k.png?raw=true "Title") 
+![Chart Output](/trading_project_images./32k.png) 
 
 *Diagram of the system architecture*
 
